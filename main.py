@@ -84,7 +84,7 @@ def save_file_format_choice(students):
         export_to_txt(students, output_file_path)
     else:
         print("Nieznany format. Wybierz txt lub csv.")
-        save_file_format_choice(students)  # Powtórz wybór, jeśli format jest nieznany
+        save_file_format_choice(students)  
 
 
 

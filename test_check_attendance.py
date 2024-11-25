@@ -15,7 +15,7 @@ def test_check_attendance():
         return next(inputs)
 
     with redirect_stdout(StringIO()) as output:
-        with pytest.monkeypatch.context() as m:
+        with pytest.MonkeyPatch.context() as m:
             m.setattr("builtins.input", mock_input)
             check_attendance(students)
 

@@ -12,7 +12,7 @@ def test_add_new_student():
         return next(inputs)
 
     with redirect_stdout(StringIO()) as output:
-        with pytest.monkeypatch.context() as m:
+        with pytest.MonkeyPatch.context() as m:
             m.setattr("builtins.input", mock_input)
             add_new_student(students)
 
