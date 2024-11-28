@@ -3,16 +3,16 @@ import csv
 
 
 class Student:
-    def __init__(self, imie, nazwisko, obecnosc=False):
-        self.imie = imie
-        self.nazwisko = nazwisko
-        self.obecnosc = obecnosc
+    def __init__(self, name, last_name, attendance=False):
+        self.name = name
+        self.last_name = last_name
+        self.attendance = attendance
 
     def __str__(self):
-        return f"{self.imie} {self.nazwisko} - {'Obecny' if self.obecnosc else 'Nieobecny'}"
+        return f"{self.name} {self.last_name} - {'Obecny' if self.attendance else 'Nieobecny'}"
 
     def to_csv(self):
-        return f"{self.imie},{self.nazwisko},{'Obecny' if self.obecnosc else 'Nieobecny'}"
+        return f"{self.name},{self.last_name},{'Obecny' if self.attendance else 'Nieobecny'}"
 
 
 def import_students(file_path):
@@ -49,10 +49,10 @@ def export_to_txt(students, file_path):
 
 
 def add_new_student(students):
-    imie = input("Podaj imię studenta: ").strip()
-    nazwisko = input("Podaj nazwisko studenta: ").strip()
-    obecnosc = input("Czy student jest obecny? (tak/nie): ").strip().lower() == "tak"
-    students.append(Student(imie, nazwisko, obecnosc))
+    name = input("Podaj imię studenta: ").strip()
+    last_name = input("Podaj nazwisko studenta: ").strip()
+    attendance = input("Czy student jest obecny? (tak/nie): ").strip().lower() == "tak"
+    students.append(Student(name, last_name, attendance))
     print(f"Dodano nowego studenta: {students[-1]}")
 
 
@@ -60,16 +60,16 @@ def add_new_student(students):
 def check_attendance(students):
     print("Sprawdzanie obecności studentów:")
     for student in students:
-        obecnosc = input(f"Czy {student.imie} {student.nazwisko} jest obecny? (tak/nie): ").strip().lower() == "tak"
-        student.obecnosc = obecnosc
+        attendance = input(f"Czy {student.name} {student.last_name} jest obecny? (tak/nie): ").strip().lower() == "tak"
+        student.attendance = attendance
 
 
 
 def edit_attendance(students):
     print("Edycja obecności studentów:")
     for student in students:
-        obecnosc = input(f"Czy {student.imie} {student.nazwisko} jest obecny? (tak/nie): ").strip().lower() == "tak"
-        student.obecnosc = obecnosc
+        attendance = input(f"Czy {student.name} {student.last_name} jest obecny? (tak/nie): ").strip().lower() == "tak"
+        student.attendance = attendance
 
 
 def save_file_format_choice(students):
@@ -91,7 +91,7 @@ def save_file_format_choice(students):
 def save_students_to_file(students, file_path):
     with open(file_path, "w", encoding="utf-8") as file:
         for student in students:
-            file.write(f"{student.imie} {student.nazwisko}\n")
+            file.write(f"{student.name} {student.last_name}\n")
     print(f"Dane zostały zapisane w pliku: {file_path}")
 
 

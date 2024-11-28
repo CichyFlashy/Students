@@ -21,6 +21,6 @@ def test_edit_attendance():
             edit_attendance(students)
 
 
-    assert students[0].obecnosc is True
-    assert students[1].obecnosc is False
+    assert students[0].attendance is True
+    assert students[1].attendance is False
     assert "Edycja obecności studentów:" in output.getvalue()
