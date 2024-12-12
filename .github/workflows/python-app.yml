@@ -47,3 +47,38 @@ jobs:
         uses: codecov/codecov-action@v3
         with:
           files: ./coverage.xml
+
+  lint:
+    name: Lint Codebase
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Run Super-Linter
+        uses: super-linter/super-linter@v5
+        env:
+          VALIDATE_PYTHON: true
+          VALIDATE_ALL_CODEBASE: true
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  
+  format:
+    name: Format Code with Black
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install Black
+        run: pip install black
+
+      - name: Format code
+        run: black . --check
+  
