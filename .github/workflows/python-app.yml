@@ -14,7 +14,7 @@ permissions:
 
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: linux-latest
 
     steps:
       - name: Checkout repository
@@ -54,7 +54,7 @@ jobs:
 
   lint:
     name: Lint Codebase
-    runs-on: windows-latest
+    runs-on: linux-latest
 
     steps:
       - name: Checkout repository
@@ -69,7 +69,7 @@ jobs:
   
   format:
     name: Format Code with Black
-    runs-on: windows-latest
+    runs-on: linux-latest
 
     steps:
       - name: Checkout repository
