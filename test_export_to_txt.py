@@ -1,6 +1,3 @@
-import os
-import tempfile
-import pytest
 from main import export_to_txt
 from functions_for_tests import save_to_temp_file
 

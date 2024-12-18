@@ -1,7 +1,6 @@
-import os
-import pytest
+
 from unittest.mock import mock_open, patch
-from main import import_students, Student
+from main import import_students
 
 
 @patch("main.os.path.exists", return_value=True)

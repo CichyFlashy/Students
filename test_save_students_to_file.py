@@ -1,5 +1,4 @@
-import pytest
-import os
+
 from io import StringIO
 from contextlib import redirect_stdout
 from main import save_students_to_file, Student

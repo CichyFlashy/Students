@@ -1,5 +1,5 @@
 import pytest
-from main import add_new_student, Student
+from main import add_new_student
 from io import StringIO
 from contextlib import redirect_stdout
 
