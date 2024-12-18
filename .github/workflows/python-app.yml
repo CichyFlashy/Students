@@ -14,7 +14,7 @@ permissions:
 
 jobs:
   build:
-    runs-on: linux-latest
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
@@ -85,3 +85,18 @@ jobs:
 
       - name: Format code
         run: black . --check
+
+  todo-issues:
+    name: Create Issues from TODO Comments
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Create Issues for TODOs
+        uses: alstr/todo-to-issue-action@v4
+        with:
+          TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          COMMENT_TAGS: TODO, FIXME
+          LABEL: "todo"
