@@ -11,6 +11,7 @@ class Student:
         last_name (str): Nazwisko studenta.
         attendance (bool): Informacja o obecności studenta.
     """
+
     def __init__(self, name, last_name, attendance=False):
         """
         Inicjalizuje instancję klasy Student.

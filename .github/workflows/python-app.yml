@@ -60,7 +60,7 @@ jobs:
           pip install pylint
 
       - name: Run Linter with Pylint
-        run: pylint your_module/
+        run: pylint .
 
   format:
     name: Format Code with Black
