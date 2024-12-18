@@ -10,10 +10,10 @@ def test_import_students_valid_file(mock_file, mock_exists):
     result = import_students("students.txt")
 
     assert len(result) == 2
-    assert result[0].imie == "John"
-    assert result[0].nazwisko == "Doe"
-    assert result[1].imie == "Jane"
-    assert result[1].nazwisko == "Smith"
+    assert result[0].name == "John"
+    assert result[0].last_name == "Doe"
+    assert result[1].name == "Jane"
+    assert result[1].lastname == "Smith"
 
 
 @patch("main.os.path.exists", return_value=True)
