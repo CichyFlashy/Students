@@ -13,7 +13,7 @@ def test_import_students_valid_file(mock_file, mock_exists):
     assert result[0].name == "John"
     assert result[0].last_name == "Doe"
     assert result[1].name == "Jane"
-    assert result[1].lastname == "Smith"
+    assert result[1].last_name == "Smith"
 
 
 @patch("main.os.path.exists", return_value=True)
