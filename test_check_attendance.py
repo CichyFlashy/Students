@@ -20,6 +20,6 @@ def test_check_attendance():
             m.setattr("builtins.input", mock_input)
             check_attendance(students)
 
-    assert students[0].obecnosc is True
-    assert students[1].obecnosc is False
+    assert students[0].attendance is True
+    assert students[1].attendance is False
     assert "Sprawdzanie obecności studentów:" in output.getvalue()

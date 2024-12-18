@@ -3,7 +3,23 @@ import csv
 
 
 class Student:
+    """
+    Klasa reprezentująca studenta.
+
+    Attributes:
+        name (str): Imię studenta.
+        last_name (str): Nazwisko studenta.
+        attendance (bool): Informacja o obecności studenta.
+    """
     def __init__(self, name, last_name, attendance=False):
+        """
+        Inicjalizuje instancję klasy Student.
+
+        Parameters:
+            name (str): Imię studenta.
+            last_name (str): Nazwisko studenta.
+            attendance (bool): Informacja o obecności studenta.
+        """
         self.name = name
         self.last_name = last_name
         self.attendance = attendance

@@ -11,7 +11,7 @@ permissions:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
 
     steps:
       - name: Checkout repository
@@ -48,7 +48,7 @@ jobs:
 
   lint:
     name: Lint Codebase
-    runs-on: linux-latest
+    runs-on: ubuntu-22.04
 
     steps:
       - name: Checkout repository
@@ -64,7 +64,7 @@ jobs:
 
   format:
     name: Format Code with Black
-    runs-on: linux-latest
+    runs-on: ubuntu-22.04
 
     steps:
       - name: Checkout repository
@@ -83,7 +83,7 @@ jobs:
 
   todo-issues:
     name: Create Issues from TODO Comments
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
 
     steps:
       - name: Checkout repository
