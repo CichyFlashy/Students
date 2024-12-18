@@ -88,7 +88,6 @@ jobs:
   todo-issues:
     name: Create Issues from TODO Comments
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -97,5 +96,5 @@ jobs:
         uses: alstr/todo-to-issue-action@v4
         with:
           TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          COMMENT_TAGS: TODO, FIXME
+          COMMENT_MARKER: TODO,FIXME  
           LABEL: "todo"
