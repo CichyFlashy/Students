@@ -25,12 +25,8 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install pylint pytest coverage
+          pip install pytest coverage
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-
-      - name: Lint with Pylint
-        run: |
-          pylint .
 
       - name: Test with pytest
         run: pytest
@@ -47,20 +43,19 @@ jobs:
           files: ./coverage.xml
 
   lint:
-    name: Lint Codebase
+    name: Lint Codebase with Super-Linter
     runs-on: ubuntu-22.04
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install pylint
-
-      - name: Run Linter with Pylint
-        run: pylint .
+      - name: Set up Super Linter
+        uses: github/super-linter@v5
+        with:
+          linters: 'pylint'  
+        env:
+          RUN_LOCAL: true  
 
   format:
     name: Format Code with Black
