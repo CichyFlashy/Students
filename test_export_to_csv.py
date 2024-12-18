@@ -2,7 +2,7 @@ import os
 import tempfile
 import pytest
 from main import export_to_csv
-from functions_for_tests import save_to_temp_file  
+from functions_for_tests import save_to_temp_file
 
 
 class MockStudent:
@@ -18,12 +18,12 @@ class MockStudent:
 def test_export_to_csv_valid_data():
     students = [MockStudent("John", "Doe", "Yes"), MockStudent("Jane", "Smith", "No")]
     expected_content = "Imie,Nazwisko,Obecny\nJohn,Doe,Yes\nJane,Smith,No\n"
-    
+
     save_to_temp_file(export_to_csv, students, expected_content)
 
 
 def test_export_to_csv_empty_list():
     students = []
     expected_content = "Imie,Nazwisko,Obecny\n"
-    
+
     save_to_temp_file(export_to_csv, students, expected_content)
