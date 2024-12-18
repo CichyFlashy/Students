@@ -2,6 +2,7 @@ import os
 import tempfile
 import pytest
 from main import export_to_txt
+from functions_for_tests import save_to_temp_file  
 
 
 class MockStudent:
@@ -15,36 +16,13 @@ class MockStudent:
 
 def test_export_to_txt_valid_data():
     students = [MockStudent("John", "Doe"), MockStudent("Jane", "Smith")]
-
-    with tempfile.NamedTemporaryFile(
-        delete=False, mode="w", encoding="utf-8"
-    ) as temp_file:
-        temp_file_path = temp_file.name
-
-    try:
-        export_to_txt(students, temp_file_path)
-
-        with open(temp_file_path, "r", encoding="utf-8") as file:
-            content = file.read()
-        expected_content = "John Doe\nJane Smith\n"
-        assert content == expected_content
-    finally:
-        os.remove(temp_file_path)
+    expected_content = "John Doe\nJane Smith\n"
+    
+    save_to_temp_file(export_to_txt, students, expected_content)
 
 
 def test_export_to_txt_empty_list():
     students = []
-
-    with tempfile.NamedTemporaryFile(
-        delete=False, mode="w", encoding="utf-8"
-    ) as temp_file:
-        temp_file_path = temp_file.name
-
-    try:
-        export_to_txt(students, temp_file_path)
-
-        with open(temp_file_path, "r", encoding="utf-8") as file:
-            content = file.read()
-        assert content == ""
-    finally:
-        os.remove(temp_file_path)
+    expected_content = ""
+    
+    save_to_temp_file(export_to_txt, students, expected_content)

@@ -2,6 +2,7 @@ import os
 import tempfile
 import pytest
 from main import export_to_csv
+from functions_for_tests import save_to_temp_file  
 
 
 class MockStudent:
@@ -16,37 +17,13 @@ class MockStudent:
 
 def test_export_to_csv_valid_data():
     students = [MockStudent("John", "Doe", "Yes"), MockStudent("Jane", "Smith", "No")]
-
-    with tempfile.NamedTemporaryFile(
-        delete=False, mode="w", encoding="utf-8"
-    ) as temp_file:
-        temp_file_path = temp_file.name
-
-    try:
-        export_to_csv(students, temp_file_path)
-
-        with open(temp_file_path, "r", encoding="utf-8") as file:
-            content = file.read()
-        expected_content = "Imie,Nazwisko,Obecny\nJohn,Doe,Yes\nJane,Smith,No\n"
-        assert content == expected_content
-    finally:
-        os.remove(temp_file_path)
+    expected_content = "Imie,Nazwisko,Obecny\nJohn,Doe,Yes\nJane,Smith,No\n"
+    
+    save_to_temp_file(export_to_csv, students, expected_content)
 
 
 def test_export_to_csv_empty_list():
     students = []
-
-    with tempfile.NamedTemporaryFile(
-        delete=False, mode="w", encoding="utf-8"
-    ) as temp_file:
-        temp_file_path = temp_file.name
-
-    try:
-        export_to_csv(students, temp_file_path)
-
-        with open(temp_file_path, "r", encoding="utf-8") as file:
-            content = file.read()
-        expected_content = "Imie,Nazwisko,Obecny\n"
-        assert content == expected_content
-    finally:
-        os.remove(temp_file_path)
+    expected_content = "Imie,Nazwisko,Obecny\n"
+    
+    save_to_temp_file(export_to_csv, students, expected_content)
