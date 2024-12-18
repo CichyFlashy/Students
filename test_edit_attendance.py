@@ -11,15 +11,14 @@ def test_edit_attendance():
     ]
 
     inputs = iter(["tak", "nie"])
+
     def mock_input(prompt):
         return next(inputs)
-
 
     with redirect_stdout(StringIO()) as output:
         with pytest.MonkeyPatch.context() as m:
             m.setattr("builtins.input", mock_input)
             edit_attendance(students)
-
 
     assert students[0].attendance is True
     assert students[1].attendance is False

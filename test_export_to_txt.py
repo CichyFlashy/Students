@@ -3,6 +3,7 @@ import tempfile
 import pytest
 from main import export_to_txt
 
+
 class MockStudent:
     def __init__(self, first_name, last_name):
         self.first_name = first_name
@@ -13,12 +14,11 @@ class MockStudent:
 
 
 def test_export_to_txt_valid_data():
-    students = [
-        MockStudent("John", "Doe"),
-        MockStudent("Jane", "Smith")
-    ]
+    students = [MockStudent("John", "Doe"), MockStudent("Jane", "Smith")]
 
-    with tempfile.NamedTemporaryFile(delete=False, mode="w", encoding="utf-8") as temp_file:
+    with tempfile.NamedTemporaryFile(
+        delete=False, mode="w", encoding="utf-8"
+    ) as temp_file:
         temp_file_path = temp_file.name
 
     try:
@@ -35,7 +35,9 @@ def test_export_to_txt_valid_data():
 def test_export_to_txt_empty_list():
     students = []
 
-    with tempfile.NamedTemporaryFile(delete=False, mode="w", encoding="utf-8") as temp_file:
+    with tempfile.NamedTemporaryFile(
+        delete=False, mode="w", encoding="utf-8"
+    ) as temp_file:
         temp_file_path = temp_file.name
 
     try:

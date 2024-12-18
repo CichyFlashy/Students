@@ -15,12 +15,11 @@ class MockStudent:
 
 
 def test_export_to_csv_valid_data():
-    students = [
-        MockStudent("John", "Doe", "Yes"),
-        MockStudent("Jane", "Smith", "No")
-    ]
+    students = [MockStudent("John", "Doe", "Yes"), MockStudent("Jane", "Smith", "No")]
 
-    with tempfile.NamedTemporaryFile(delete=False, mode="w", encoding="utf-8") as temp_file:
+    with tempfile.NamedTemporaryFile(
+        delete=False, mode="w", encoding="utf-8"
+    ) as temp_file:
         temp_file_path = temp_file.name
 
     try:
@@ -37,7 +36,9 @@ def test_export_to_csv_valid_data():
 def test_export_to_csv_empty_list():
     students = []
 
-    with tempfile.NamedTemporaryFile(delete=False, mode="w", encoding="utf-8") as temp_file:
+    with tempfile.NamedTemporaryFile(
+        delete=False, mode="w", encoding="utf-8"
+    ) as temp_file:
         temp_file_path = temp_file.name
 
     try:

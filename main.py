@@ -56,19 +56,27 @@ def add_new_student(students):
     print(f"Dodano nowego studenta: {students[-1]}")
 
 
-
 def check_attendance(students):
     print("Sprawdzanie obecności studentów:")
     for student in students:
-        attendance = input(f"Czy {student.name} {student.last_name} jest obecny? (tak/nie): ").strip().lower() == "tak"
+        attendance = (
+            input(f"Czy {student.name} {student.last_name} jest obecny? (tak/nie): ")
+            .strip()
+            .lower()
+            == "tak"
+        )
         student.attendance = attendance
-
 
 
 def edit_attendance(students):
     print("Edycja obecności studentów:")
     for student in students:
-        attendance = input(f"Czy {student.name} {student.last_name} jest obecny? (tak/nie): ").strip().lower() == "tak"
+        attendance = (
+            input(f"Czy {student.name} {student.last_name} jest obecny? (tak/nie): ")
+            .strip()
+            .lower()
+            == "tak"
+        )
         student.attendance = attendance
 
 
@@ -84,8 +92,7 @@ def save_file_format_choice(students):
         export_to_txt(students, output_file_path)
     else:
         print("Nieznany format. Wybierz txt lub csv.")
-        save_file_format_choice(students)  
-
+        save_file_format_choice(students)
 
 
 def save_students_to_file(students, file_path):
@@ -93,7 +100,6 @@ def save_students_to_file(students, file_path):
         for student in students:
             file.write(f"{student.name} {student.last_name}\n")
     print(f"Dane zostały zapisane w pliku: {file_path}")
-
 
 
 def main():

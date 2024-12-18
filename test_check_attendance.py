@@ -11,6 +11,7 @@ def test_check_attendance():
     ]
 
     inputs = iter(["tak", "nie"])
+
     def mock_input(prompt):
         return next(inputs)
 

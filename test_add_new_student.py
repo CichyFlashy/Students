@@ -8,6 +8,7 @@ def test_add_new_student():
     students = []
 
     inputs = iter(["John", "Doe", "tak"])
+
     def mock_input(prompt):
         return next(inputs)
 
