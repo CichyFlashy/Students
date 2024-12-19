@@ -1,5 +1,5 @@
-from main import export_to_csv
 from functions_for_tests import save_to_temp_file
+from main import export_to_csv
 
 
 class MockStudent:
