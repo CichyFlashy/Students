@@ -52,10 +52,9 @@ jobs:
 
       - name: Set up Super Linter
         uses: github/super-linter@v5
-        with:
-          linters: 'pylint'  
+        
         env:
-          RUN_LOCAL: true  
+          PYTHON_VALIDATE_RUFF: true  
 
   format:
     name: Format Code with Black
